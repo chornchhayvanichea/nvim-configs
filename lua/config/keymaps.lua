@@ -6,7 +6,6 @@ vim.keymap.set("n", "<leader>q", ":quit<CR>")
 vim.keymap.set("i", "jk", "<Esc>", { noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-
 -- Open terminal in split
 vim.keymap.set("n", "<leader>t", ":vsplit | terminal<CR>", { desc = "Open terminal" })
 -- Exit terminal mode with jk
