@@ -2,15 +2,15 @@ return {
   -- Snippet engine
   {
     "L3MON4D3/LuaSnip",
-    version = "v2.*",
+    version = "*",
     build = "make install_jsregexp",
     config = function()
       local luasnip = require("luasnip")
       -- Load VSCode snippets
       require("luasnip.loaders.from_vscode").lazy_load()
+      -- Key mappings for snippet navigation
     end,
   },
-
   -- Completion engine
   {
     "saghen/blink.cmp",
@@ -19,22 +19,17 @@ return {
     opts = {
       keymap = { preset = "default" },
       appearance = { nerd_font_variant = "mono" },
-      completion = { documentation = { auto_show = true } },
-      sources = { default = { "lsp", "path", "snippets", "buffer" } },
-      fuzzy = { implementation = "prefer_rust_with_warning" },
-    },
-    config = function(_, opts)
-      local cmp = require("blink.cmp")
-      cmp.setup(opts)
-
-      -- Snippet expansion hook
-      cmp.setup({
-        snippet = {
-          expand = function(args)
-            require("luasnip").lsp_expand(args.body)
-          end,
+      completion = {
+        documentation = { auto_show = true },
+        accept = {
+          auto_brackets = { enabled = true },
         },
-      })
-    end,
+      },
+      sources = {
+        default = { "lsp", "path", "snippets", "buffer" },
+      },
+      fuzzy = { implementation = "prefer_rust_with_warning" },
+      signature = { enabled = true },
+    },
   },
 }
