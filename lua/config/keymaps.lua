@@ -1,13 +1,15 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>o", ":update<CR> :source<CR>")
 vim.keymap.set("i", "jk", "<Esc>", { noremap = true, silent = true })
-
 vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to window below" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to window above" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
+
+vim.keymap.set("n", "<leader><leader>", "<C-^>")
+vim.keymap.set("n", "<leader>t", ":term<CR>:startinsert<CR>")
+vim.keymap.set("t", "jk", "<C-\\><C-n>")
 -- Window splits
 --vim.keymap.set('n', '<leader>sv', '<C-w>v', { desc = 'Split window vertically' })
 --vim.keymap.set('n', '<leader>sh', '<C-w>s', { desc = 'Split window horizontally' })
