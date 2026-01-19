@@ -7,7 +7,12 @@ vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to window below" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to window above" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
 
+-- buffers navigations
 vim.keymap.set("n", "<leader><leader>", "<C-^>")
+--vim.keymap.set("n", "<leader>n", ":bnext<CR>")
+--vim.keymap.set("n", "<leader>p", ":bprev<CR>")
+
+-- terminal mode
 vim.keymap.set("n", "<leader>t", ":term<CR>:startinsert<CR>")
 vim.keymap.set("t", "jk", "<C-\\><C-n>")
 -- Window splits

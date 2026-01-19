@@ -14,6 +14,12 @@ return {
           typescript = { "prettierd" },
           javascript = { "prettierd" },
           html = { "prettierd" },
+          gdscript = {
+            "gdformat",
+          },
+          markdown = { "prettierd" },
+          c = { "clang-format" },
+          cpp = { "clang-format" },
         },
       })
       vim.api.nvim_create_autocmd("BufWritePre", {

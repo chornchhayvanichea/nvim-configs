@@ -11,7 +11,10 @@ return {
       javascript = { "eslint_d" },
       typescript = { "eslint_d" },
       vue = { "eslint_d" },
-      python = { "ruff" },
+      python = { "ruff", "gdtoolkit" },
+      --      c = { "cpplint" },
+      --      cpp = { "cpplint" },
+
       --php = { "" },
     }
 
