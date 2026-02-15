@@ -12,10 +12,8 @@ return {
       typescript = { "eslint_d" },
       vue = { "eslint_d" },
       python = { "ruff", "gdtoolkit" },
-      --      c = { "cpplint" },
-      --      cpp = { "cpplint" },
-
-      --php = { "" },
+      php = { "tlint" },
+      blade = { "tlint" },
     }
 
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

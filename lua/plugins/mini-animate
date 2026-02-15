@@ -5,7 +5,7 @@ return {
       cursor = { enable = false },
       scroll = {
         timing = function()
-          return 11
+          return 10
         end,
       },
       resize = { enable = false },

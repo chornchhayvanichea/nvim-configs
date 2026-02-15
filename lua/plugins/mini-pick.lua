@@ -13,6 +13,10 @@ return {
         require("mini.pick").builtin.files()
       end, { desc = "Find files" })
 
+      vim.keymap.set("n", "<leader><S-g>", function()
+        require("mini.pick").builtin.grep_live()
+      end)
+
       vim.keymap.set("n", "<leader>o", function()
         require("mini.pick").start({
           source = {

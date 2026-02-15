@@ -13,13 +13,14 @@ return {
           vue = { "prettierd" },
           typescript = { "prettierd" },
           javascript = { "prettierd" },
-          html = { "prettierd" },
+          --          html = { "prettierd" },
           gdscript = {
             "gdformat",
           },
           markdown = { "prettierd" },
           c = { "clang-format" },
           cpp = { "clang-format" },
+          blade = { "blade-formatter" },
         },
       })
       vim.api.nvim_create_autocmd("BufWritePre", {
