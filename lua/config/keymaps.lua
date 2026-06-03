@@ -4,16 +4,16 @@ vim.g.mapleader = " "
 vim.keymap.set("i", "jk", "<Esc>", { noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-
+vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "write" })
+vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "quit" })
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to window below" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to window above" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
-
 vim.keymap.set("n", "<leader><S-t>", ":tabnew<CR>")
 
 -- buffers navigations
---vim.keymap.set("n", "<leader><leader>", "<C-^>")
+vim.keymap.set("n", "<leader><leader>", "<C-^>")
 --vim.keymap.set("n", "<leader>n", ":bnext<CR>")
 --vim.keymap.set("n", "<leader>p", ":bprev<CR>")
 

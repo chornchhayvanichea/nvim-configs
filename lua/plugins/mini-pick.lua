@@ -1,11 +1,16 @@
 return {
   {
     "echasnovski/mini.pick",
-    --   dependencies = { "nvim-tree/nvim-web-devicons" },
+    --    dependencies = { "nvim-tree/nvim-web-devicons" },
     version = false,
     config = function()
       require("mini.pick").setup({
         use_cache = true, -- pass options here
+        window = {
+          config = {
+            border = "none",
+          },
+        },
       })
 
       -- Keymaps

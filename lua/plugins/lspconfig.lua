@@ -110,19 +110,35 @@ return {
       vim.lsp.config("laravel_ls", {
         cmd = { "laravel-ls" },
         filetypes = { "php", "blade" },
-        root_dir = require("lspconfig.util").root_pattern("artisan", ".git", "composer.json"),
+        root_dir = function(bufnr)
+          return vim.fs.root(bufnr, { "artisan", ".git", "composer.json" })
+        end,
       })
-      vim.lsp.config("intelephense", {
-        filetypes = { "php", "blade", "html" },
-      })
+
       vim.lsp.config("emmet_ls", {
         cmd = { "emmet-ls", "--stdio" },
         filetypes = { "php", "html", "vue", "javascript", "typescript", "blade" },
       })
+      vim.lsp.config("lua_ls", {
+        settings = {
+          Lua = {
+            diagnostic = {
+              globals = { "vim" },
+            },
+            workspace = {
+              library = vim.api.nvim_get_runtime_file("", true),
+              checkThirdParty = false,
+            },
+            completion = {
+              callSnippet = "Replace",
+            },
+          },
+        },
+      })
       -- Setup other LSP servers
       local servers = {
         "lua_ls",
-        "ruff",
+        "pyright",
         "gopls",
         "html",
         "tailwindcss",
@@ -132,8 +148,12 @@ return {
         "emmet_ls",
         "cssls",
         "laravel_ls",
-        "intelephense",
         "clangd",
+        "texlab",
+        "kotlin-language-server",
+        "csharp_ls",
+        "java",
+        "sql",
       }
       for _, server in ipairs(servers) do
         vim.lsp.enable(server)

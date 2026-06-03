@@ -59,12 +59,22 @@ return {
             end
           end, { "i", "s" }),
         }),
+        sorting = {
+          comparators = {
+            cmp.config.compare.exact,
+            cmp.config.compare.score,
+            cmp.config.compare.kind,
+            cmp.config.compare.sort_text,
+            cmp.config.compare.length,
+            cmp.config.compare.order,
+          },
+        },
         sources = cmp.config.sources({
-          { name = "nvim_lsp" },
-          { name = "luasnip" },
-          { name = "path" },
+          { name = "nvim_lsp", priority = 1000 },
+          { name = "luasnip", priority = 750 },
+          { name = "path", priority = 500 },
         }, {
-          { name = "buffer" },
+          { name = "buffer", priority = 250 },
         }),
       })
     end,

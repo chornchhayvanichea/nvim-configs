@@ -10,7 +10,7 @@ return {
         ["<C-h>"] = { disabled = true },
         ["<C-v>"] = "actions.select_vsplit", -- Change to C-v for vertical split
         ["<C-s>"] = "actions.select_split", -- Keep C-s for horizontal split
-        ["<leader>w"] = { "actions.parent", mode = "n" },
+        --        ["<leader><leader>"] = { "actions.parent", mode = "n" },
       },
       --      -- Configuration for the floating window in oil.open_float
       --      float = {
