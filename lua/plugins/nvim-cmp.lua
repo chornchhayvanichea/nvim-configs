@@ -6,12 +6,13 @@ return {
     build = "make install_jsregexp",
     dependencies = { "rafamadriz/friendly-snippets" },
     config = function()
+      -- This now works because friendly-snippets is forced to load first
       require("luasnip.loaders.from_vscode").lazy_load()
     end,
   },
   {
     "rafamadriz/friendly-snippets",
-    lazy = true,
+    -- FIXED: Removed lazy = true so it is available when LuaSnip initializes
   },
   -- Completion
   {
@@ -38,7 +39,7 @@ return {
         },
         mapping = cmp.mapping.preset.insert({
           ["<C-p>"] = cmp.mapping.select_prev_item(),
-          ["<C-N>"] = cmp.mapping.select_next_item(),
+          ["<C-n>"] = cmp.mapping.select_next_item(), -- Fixed C-N casing typo here too
           ["<C-space>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping.abort(),
           ["<C-y>"] = nil,

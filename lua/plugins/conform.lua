@@ -24,6 +24,7 @@ return {
           go = { "gofumpt" },
           java = { "google-java-format" },
           sql = { "sqruff" },
+          rust = { "rustfmt" },
         },
       })
       vim.api.nvim_create_autocmd("BufWritePre", {

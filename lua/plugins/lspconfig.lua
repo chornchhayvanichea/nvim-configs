@@ -18,11 +18,16 @@ return {
         end,
       })
       vim.diagnostic.config({
-        virtual_text = true,
+        virtual_text = false,
+        virtual_lines = false,
         signs = true,
         underline = true,
         update_in_insert = false,
         severity_sort = true,
+        float = true,
+      })
+      vim.keymap.set("n", "<leader>s", vim.diagnostic.open_float, {
+        desc = "Show diagnostics",
       })
 
       -- Get the Mason path for Vue LSP
@@ -99,14 +104,14 @@ return {
         },
       }
 
-      -- Enable servers
+      -- 1. Apply configurations for specialized servers
       vim.lsp.config("ts_ls", ts_ls_config)
       vim.lsp.config("vue_ls", vue_ls_config)
-      vim.lsp.enable({ "ts_ls", "vue_ls" })
 
       vim.lsp.config("cssls", {
         filetypes = { "vue", "html", "css" },
       })
+
       vim.lsp.config("laravel_ls", {
         cmd = { "laravel-ls" },
         filetypes = { "php", "blade" },
@@ -115,10 +120,16 @@ return {
         end,
       })
 
+      -- Inject cmp capabilities into rust_analyzer explicitly
+      vim.lsp.config("rust_analyzer", {
+        capabilities = require("cmp_nvim_lsp").default_capabilities(),
+      })
+
       vim.lsp.config("emmet_ls", {
         cmd = { "emmet-ls", "--stdio" },
         filetypes = { "php", "html", "vue", "javascript", "typescript", "blade" },
       })
+
       vim.lsp.config("lua_ls", {
         settings = {
           Lua = {
@@ -135,8 +146,11 @@ return {
           },
         },
       })
-      -- Setup other LSP servers
+
+      -- 2. Define the list of servers to activate
       local servers = {
+        "ts_ls",
+        "vue_ls",
         "lua_ls",
         "pyright",
         "gopls",
@@ -154,10 +168,11 @@ return {
         "csharp_ls",
         "java",
         "sql",
+        "rust_analyzer",
       }
-      for _, server in ipairs(servers) do
-        vim.lsp.enable(server)
-      end
+
+      -- 3. Pass the entire table directly to vim.lsp.enable
+      vim.lsp.enable(servers)
     end,
   },
 }
