@@ -26,10 +26,12 @@ return {
         severity_sort = true,
         float = true,
       })
-      vim.keymap.set("n", "<leader>s", vim.diagnostic.open_float, {
+      --//      vim.keymap.set("n", "<A-CR>", vim.lsp.buf.code_action, {
+      --//        desc = "Code Action",
+      --//      })
+      vim.keymap.set("n", "<A-CR>", vim.diagnostic.open_float, {
         desc = "Show diagnostics",
       })
-
       -- Get the Mason path for Vue LSP
       local vue_language_server_path = vim.fn.stdpath("data")
         .. "/mason/packages/vue-language-server/node_modules/@vue/language-server"

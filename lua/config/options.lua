@@ -13,3 +13,4 @@ vim.o.smartindent = true
 vim.o.autoindent = true
 --vim.o.cindent = false -- disable overly aggressive C-style indent
 vim.opt.guicursor = ""
+vim.o.updatetime = 250
